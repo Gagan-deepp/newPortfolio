@@ -3,6 +3,37 @@ const nodemailer = require('nodemailer')
 const sendMessage = async (req, res) => {
     try {
         const { name, mail, phone,sub, msg } = req.body;
+
+        if (!name) {
+            res.status(406).send({
+                success: false,
+                message: 'Name is required'
+            })
+        }
+        if (!phone) {
+            res.status(406).send({
+                success: false,
+                message: 'Phone is required'
+            })
+        }
+        if (!mail) {
+            res.status(406).send({
+                success: false,
+                message: 'Mail Address is required'
+            })
+        }
+        if (!sub) {
+            res.status(406).send({
+                success: false,
+                message: 'Enter your Subject !!'
+            })
+        }
+        if (!msg) {
+            res.status(406).send({
+                success: false,
+                message: 'Kindly write a message !!'
+            })
+        }
         let transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
