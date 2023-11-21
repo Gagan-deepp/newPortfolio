@@ -76,7 +76,7 @@ const sendMessage = async (req, res) => {
             } else {
                 res.status(200).send({
                     success: true,
-                    message: info.response
+                    message: 'Email Delivered to Me !! Thank You'
                 })
             }
         });
